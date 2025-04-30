@@ -1,5 +1,6 @@
 import { Box, Stack, Typography, Button, Card } from "@mui/material";
 import Image from "next/image";
+import JoinButton from "./JoinButton";
 
 const features = [
     {
@@ -25,7 +26,6 @@ const Solution = () => {
     return (
         <Box
             sx={{
-                backgroundColor: "#FCFCFC",
                 px: { xs: 4, md: "204px" },
                 py: { xs: 8, md: "100px" },
             }}
@@ -120,23 +120,7 @@ const Solution = () => {
                 </Card>
             </Box>
 
-            <Box textAlign="center" mt={8}>
-                <Button
-                    sx={{
-                        backgroundColor: "#5F45FC",
-                        color: "#FCFCFC",
-                        fontSize: "16px",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        textTransform: "none",
-                        "&:hover": {
-                            backgroundColor: "#4C3EC0",
-                        },
-                    }}
-                >
-                    Join the Waiting List Now
-                </Button>
-            </Box>
+            <JoinButton/>
         </Box>
     );
 };
