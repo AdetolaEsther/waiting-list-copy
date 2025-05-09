@@ -8,9 +8,23 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
+import { useJoinWaitlistMutation } from "@/apis/api";
 
 const JoinButton = () => {
     const [open, setOpen] = useState(false);
+
+    const [formData, setFormData] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+    });
+    const [joinWaitlist, { isLoading, isSuccess, isError }] =
+        useJoinWaitlistMutation();
+
+const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await joinWaitlist(formData);
+};
 
     return (
         <>
@@ -71,25 +85,49 @@ const JoinButton = () => {
                         display="flex"
                         flexDirection="column"
                         gap={2}
+                        onSubmit={handleSubmit}
                     >
                         <TextField
                             label="First Name"
-                            placeholder="Enter first name here"
+                            name="first_name"
+                            value={formData.first_name}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    [e.target.name]: e.target.value,
+                                })
+                            }
                             fullWidth
                             variant="outlined"
                         />
+
                         <TextField
                             label="Last Name"
-                            placeholder="Enter last name here"
+                            name="last_name"
+                            value={formData.last_name}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    [e.target.name]: e.target.value,
+                                })
+                            }
                             fullWidth
                             variant="outlined"
                         />
+
                         <TextField
                             label="Email Address"
-                            placeholder="example@email.com"
+                            name="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    [e.target.name]: e.target.value,
+                                })
+                            }
                             fullWidth
                             variant="outlined"
-                            type="email"
                         />
 
                         <Button
@@ -112,6 +150,15 @@ const JoinButton = () => {
                     </Box>
                 </Box>
             </Modal>
+            {isSuccess && (
+                <Typography color="green">Successfully joined!</Typography>
+            )}
+
+            {isError && (
+                <Typography color="red">
+                    Something went wrong. Try again.
+                </Typography>
+            )}
         </>
     );
 };
