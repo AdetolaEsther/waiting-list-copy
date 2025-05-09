@@ -9,6 +9,8 @@ import {
 import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 import { useJoinWaitlistMutation } from "@/apis/api";
+import { LoadingButton } from "@mui/lab";
+
 
 const JoinButton = () => {
     const [open, setOpen] = useState(false);
@@ -130,8 +132,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                             variant="outlined"
                         />
 
-                        <Button
+                        <LoadingButton
                             type="submit"
+                            loading={isLoading}
+                            disabled={isLoading}
                             sx={{
                                 backgroundColor: "#5F45FC",
                                 color: "#fff",
@@ -143,10 +147,13 @@ const handleSubmit = async (e: React.FormEvent) => {
                                 "&:hover": {
                                     backgroundColor: "#4C3EC0",
                                 },
+                                "&.Mui-disabled": {
+                                    backgroundColor: "#C2BFF7", // Optional: lighter shade for disabled state
+                                },
                             }}
                         >
                             Complete Sign Up
-                        </Button>
+                        </LoadingButton>
                     </Box>
                 </Box>
             </Modal>
