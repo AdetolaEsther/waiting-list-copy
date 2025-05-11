@@ -17,7 +17,6 @@ import CloseIcon from "@mui/icons-material/Close";
 const Header = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const [open, setOpen] = useState(false);
-    const [openModal, setOpenModal] = useState(false);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);

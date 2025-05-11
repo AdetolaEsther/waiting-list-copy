@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, Button, Card } from "@mui/material";
+import { Box, Stack, Typography,  Card } from "@mui/material";
 import Image from "next/image";
 import JoinButton from "./JoinButton";
 

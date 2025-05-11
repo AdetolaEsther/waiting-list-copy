@@ -1,7 +1,6 @@
-import { Typography, Box, Stack, Button } from "@mui/material";
+import { Typography, Box, Stack,  } from "@mui/material";
 import React from "react";
 import Image from "next/image";
-import CheckIcon from "@mui/icons-material/Check";
 import JoinButton from "./JoinButton";
 
 const features = [
