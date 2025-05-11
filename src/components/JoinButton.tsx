@@ -10,7 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import React, { useState } from "react";
 import { useJoinWaitlistMutation } from "@/apis/api";
 import { LoadingButton } from "@mui/lab";
-
+import { toast } from "react-toastify";
 
 const JoinButton = () => {
     const [open, setOpen] = useState(false);
@@ -20,13 +20,20 @@ const JoinButton = () => {
         last_name: "",
         email: "",
     });
-    const [joinWaitlist, { isLoading, isSuccess, isError }] =
-        useJoinWaitlistMutation();
 
-const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    await joinWaitlist(formData);
-};
+    const [joinWaitlist, { isLoading }] = useJoinWaitlistMutation();
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        try {
+            await joinWaitlist(formData).unwrap();
+            toast.success("Successfully joined!");
+            setFormData({ first_name: "", last_name: "", email: "" });
+            setOpen(false);
+        } catch (error) {
+            toast.error("Something went wrong. Please try again.");
+        }
+    };
 
     return (
         <>
@@ -59,10 +66,14 @@ const handleSubmit = async (e: React.FormEvent) => {
                         bgcolor: "#FFFFFF",
                         borderRadius: "12px",
                         boxShadow: 24,
-                        p: { xs: 3, sm: 5 },
-                        width: { xs: "90%", sm: 500 },
+                        p: { sm: 5 }, 
+                        width: "90%", 
+                        maxWidth: "500px", 
                         maxHeight: "90vh",
-                        overflowY: "auto", // Enables scrolling if modal is too tall
+                        overflowY: "auto",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
                     }}
                 >
                     <IconButton
@@ -173,16 +184,6 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </Box>
                 </Box>
             </Modal>
-
-            {isSuccess && (
-                <Typography color="green">Successfully joined!</Typography>
-            )}
-
-            {isError && (
-                <Typography color="red">
-                    Something went wrong. Try again.
-                </Typography>
-            )}
         </>
     );
 };
