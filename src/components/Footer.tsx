@@ -44,8 +44,7 @@ export default function FAQAndFooter() {
                             <Typography variant="body2">
                                 You can also email{" "}
                                 <span style={{ color: "#33DCE4" }}>
-                                    example@gmail.com
-                                </span>
+                    info@safeKeeper.com                                </span>
                             </Typography>
                         </Box>
 

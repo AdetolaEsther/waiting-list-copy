@@ -17,6 +17,7 @@ import CloseIcon from "@mui/icons-material/Close";
 const Header = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const [open, setOpen] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -81,6 +82,7 @@ const Header = () => {
                                 color: "#FCFCFC",
                                 fontSize: "0.70rem",
                             }}
+                            onClick={() => setOpen(true)}
                         >
                             Get Started
                         </Button>
@@ -88,7 +90,6 @@ const Header = () => {
                 )}
             </Stack>
 
-            {/* Modal Menu */}
             <Modal open={open} onClose={handleClose}>
                 <MuiBox
                     sx={{
