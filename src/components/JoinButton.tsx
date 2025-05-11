@@ -59,8 +59,10 @@ const handleSubmit = async (e: React.FormEvent) => {
                         bgcolor: "#FFFFFF",
                         borderRadius: "12px",
                         boxShadow: 24,
-                        p: 5,
+                        p: { xs: 3, sm: 5 },
                         width: { xs: "90%", sm: 500 },
+                        maxHeight: "90vh",
+                        overflowY: "auto", // Enables scrolling if modal is too tall
                     }}
                 >
                     <IconButton
@@ -75,10 +77,21 @@ const handleSubmit = async (e: React.FormEvent) => {
                         <CloseIcon />
                     </IconButton>
 
-                    <Typography variant="h5" fontWeight={600} mb={1}>
-                        Sign Up to our waiting List
+                    <Typography
+                        variant="h6"
+                        fontWeight={600}
+                        mb={1}
+                        sx={{ fontSize: { xs: "18px", sm: "24px" } }}
+                    >
+                        Sign Up to our Waiting List
                     </Typography>
-                    <Typography sx={{ color: "#666", mb: 3 }}>
+                    <Typography
+                        sx={{
+                            color: "#666",
+                            mb: 3,
+                            fontSize: { xs: "14px", sm: "16px" },
+                        }}
+                    >
                         Be the first to know when we launch.
                     </Typography>
 
@@ -101,6 +114,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                             }
                             fullWidth
                             variant="outlined"
+                            size="small"
                         />
 
                         <TextField
@@ -115,6 +129,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                             }
                             fullWidth
                             variant="outlined"
+                            size="small"
                         />
 
                         <TextField
@@ -130,6 +145,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                             }
                             fullWidth
                             variant="outlined"
+                            size="small"
                         />
 
                         <LoadingButton
@@ -148,7 +164,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                                     backgroundColor: "#4C3EC0",
                                 },
                                 "&.Mui-disabled": {
-                                    backgroundColor: "#C2BFF7", // Optional: lighter shade for disabled state
+                                    backgroundColor: "#C2BFF7",
                                 },
                             }}
                         >
@@ -157,6 +173,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </Box>
                 </Box>
             </Modal>
+
             {isSuccess && (
                 <Typography color="green">Successfully joined!</Typography>
             )}
