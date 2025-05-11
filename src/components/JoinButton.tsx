@@ -30,9 +30,10 @@ const JoinButton = () => {
             toast.success("Successfully joined!");
             setFormData({ first_name: "", last_name: "", email: "" });
             setOpen(false);
-        } catch (error) {
+        } catch {
             toast.error("Something went wrong. Please try again.");
         }
+
     };
 
     return (
