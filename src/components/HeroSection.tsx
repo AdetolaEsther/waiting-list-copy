@@ -13,12 +13,12 @@ const HeroSection = () => {
             alignItems="center"
             justifyContent="space-between"
             sx={{
+                pt: { xs: "80px", md: "100px" },
                 px: { xs: 3, md: "204px" },
-                py: { xs: 6, md: "100px" },
+                pb: { xs: 6, md: "100px" },
                 textAlign: { xs: "center", md: "left" },
             }}
         >
-            {/* Text Section */}
             <Stack
                 spacing={3}
                 sx={{
@@ -65,7 +65,6 @@ const HeroSection = () => {
                 </Box>
             </Stack>
 
-            {/* Image Section */}
             <Box
                 sx={{
                     flex: 1,
@@ -77,7 +76,6 @@ const HeroSection = () => {
                     width: "100%",
                 }}
             >
-                {/* Gradient Circle */}
                 <Box
                     sx={{
                         width: { xs: 250, md: 350 },
@@ -90,7 +88,6 @@ const HeroSection = () => {
                     }}
                 />
 
-                {/* Hero Image */}
                 <Box
                     sx={{
                         position: "relative",

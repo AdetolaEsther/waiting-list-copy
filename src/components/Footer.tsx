@@ -43,8 +43,15 @@ export default function FAQAndFooter() {
                             </Typography>
                             <Typography variant="body2">
                                 You can also email{" "}
-                                <span style={{ color: "#33DCE4" }}>
-                    info@safeKeeper.com                                </span>
+                                <a
+                                    href="mailto:info@safeKeeper.com"
+                                    style={{
+                                        color: "#33DCE4",
+                                        textDecoration: "none",
+                                    }}
+                                >
+                                    info@safeKeeper.com
+                                </a>
                             </Typography>
                         </Box>
 
@@ -97,7 +104,8 @@ export default function FAQAndFooter() {
                     <Stack
                         direction={{ xs: "column", md: "row" }}
                         justifyContent="space-between"
-                        alignItems="center"
+                        alignItems={{ xs: "center", md: "center" }}
+                        textAlign={{ xs: "center", md: "left" }}
                         spacing={2}
                         mb={6}
                     >
@@ -147,7 +155,8 @@ export default function FAQAndFooter() {
                         spacing={4}
                         mt={6}
                         justifyContent="space-between"
-                        alignItems="flex-start"
+                        alignItems={{ xs: "center", md: "flex-start" }}
+                        textAlign={{ xs: "center", md: "left" }}
                     >
                         <Stack spacing={1}>
                             <Typography fontWeight={600}>Company</Typography>

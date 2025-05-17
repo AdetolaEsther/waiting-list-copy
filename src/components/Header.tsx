@@ -97,7 +97,7 @@ const Header = () => {
                         backgroundColor: "#fff",
                         display: "flex",
                         flexDirection: "column",
-                        alignItems: "flex-start",
+                        alignItems: "center",
                         padding: "40px 20px",
                         gap: 3,
                     }}
@@ -108,6 +108,20 @@ const Header = () => {
                     >
                         <CloseIcon />
                     </IconButton>
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                        <Box
+                            sx={{
+                                width: 32,
+                                height: 32,
+                                position: "relative",
+                                overflow: "hidden",
+                                borderRadius: "50%",
+                            }}
+                        >
+                            <Image src="/Union.png" alt="Logo" fill />
+                        </Box>
+                        <Typography fontWeight={700}>Safe Keeper</Typography>
+                    </Stack>
 
                     <Typography sx={{ color: "#282828A6", fontSize: "1.2rem" }}>
                         Products

@@ -38,24 +38,23 @@ const JoinButton = () => {
 
     return (
         <>
-            <Box textAlign="center" mt={8}>
-                <Button
-                    onClick={() => setOpen(true)}
-                    sx={{
-                        backgroundColor: "#5F45FC",
-                        color: "#FCFCFC",
-                        fontSize: "16px",
-                        padding: "12px 24px",
-                        borderRadius: "8px",
-                        textTransform: "none",
-                        "&:hover": {
-                            backgroundColor: "#4C3EC0",
-                        },
-                    }}
-                >
-                    Join the Waiting List Now
-                </Button>
-            </Box>
+            <Button
+                onClick={() => setOpen(true)}
+                sx={{
+                    backgroundColor: "#5F45FC",
+                    color: "#FCFCFC",
+                    fontSize: "16px",
+                    padding: "12px 24px",
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    width: { xs: "100%", md: "auto" }, 
+                    "&:hover": {
+                        backgroundColor: "#4C3EC0",
+                    },
+                }}
+            >
+                Join the Waiting List Now
+            </Button>
 
             <Modal open={open} onClose={() => setOpen(false)}>
                 <Box
@@ -67,9 +66,9 @@ const JoinButton = () => {
                         bgcolor: "#FFFFFF",
                         borderRadius: "12px",
                         boxShadow: 24,
-                        p: { sm: 5 }, 
-                        width: "90%", 
-                        maxWidth: "500px", 
+                        p: { sm: 5 },
+                        width: "90%",
+                        maxWidth: "500px",
                         maxHeight: "90vh",
                         overflowY: "auto",
                         display: "flex",
