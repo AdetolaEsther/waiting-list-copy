@@ -14,7 +14,7 @@ const HeroSection = () => {
             justifyContent="space-between"
             sx={{
                 pt: { xs: "80px", md: "100px" },
-                px: { xs: 3, md: "204px" },
+                px: { xs: 3, md: "350px" },
                 pb: { xs: 6, md: "100px" },
                 textAlign: { xs: "center", md: "left" },
             }}

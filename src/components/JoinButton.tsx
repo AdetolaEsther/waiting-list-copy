@@ -46,6 +46,7 @@ const JoinButton = () => {
                     fontSize: "16px",
                     padding: "12px 24px",
                     borderRadius: "8px",
+                    height: 'auto',
                     textTransform: "none",
                     width: { xs: "100%", md: "auto" }, 
                     "&:hover": {

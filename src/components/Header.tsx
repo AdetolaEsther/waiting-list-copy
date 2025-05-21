@@ -13,6 +13,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import JoinButton from "./JoinButton";
 
 const Header = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -28,7 +29,7 @@ const Header = () => {
                 alignItems="center"
                 justifyContent="space-between"
                 sx={{
-                    padding: "20px 50px",
+                    padding: "10px 40px",
                     position: "fixed",
                     top: 0,
                     left: 0,
@@ -41,16 +42,19 @@ const Header = () => {
                 <Stack direction="row" alignItems="center" spacing={1}>
                     <Box
                         sx={{
-                            width: 32,
-                            height: 32,
+                            width: 25,
+                            height: 25,
                             position: "relative",
                             overflow: "hidden",
                             borderRadius: "50%",
+                            marginTop: 2,
                         }}
                     >
                         <Image src="/Union.png" alt="Logo" fill />
                     </Box>
-                    <Typography fontWeight={700}>Safe Keeper</Typography>
+                    <Typography fontSize={14} fontWeight={700}>
+                        Safe Keeper
+                    </Typography>
                 </Stack>
 
                 {isMobile ? (
@@ -64,27 +68,47 @@ const Header = () => {
                             spacing={3}
                             justifyContent="center"
                         >
-                            <Typography sx={{ color: "#282828A6" }}>
+                            <Typography
+                                sx={{ color: "#282828A6", cursor: "pointer" }}
+                                onClick={() => {
+                                    document
+                                        .getElementById("how-it-works-section")
+                                        ?.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                }}
+                            >
                                 Products
                             </Typography>
-                            <Typography sx={{ color: "#282828A6" }}>
+
+                            <Typography
+                                sx={{ color: "#282828A6", cursor: "pointer" }}
+                                onClick={() => {
+                                    document
+                                        .getElementById("features-section")
+                                        ?.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                }}
+                            >
                                 Feature
                             </Typography>
-                            <Typography sx={{ color: "#282828A6" }}>
+
+                            <Typography
+                                sx={{ color: "#282828A6", cursor: "pointer" }}
+                                onClick={() => {
+                                    document
+                                        .getElementById("faq-section")
+                                        ?.scrollIntoView({
+                                            behavior: "smooth",
+                                        });
+                                }}
+                            >
                                 FAQ
                             </Typography>
                         </Stack>
 
-                        <Button
-                            sx={{
-                                backgroundColor: "#5F45FC",
-                                color: "#FCFCFC",
-                                fontSize: "0.70rem",
-                            }}
-                            onClick={() => setOpen(true)}
-                        >
-                            Get Started
-                        </Button>
+                        <JoinButton />
                     </>
                 )}
             </Stack>
@@ -123,13 +147,50 @@ const Header = () => {
                         <Typography fontWeight={700}>Safe Keeper</Typography>
                     </Stack>
 
-                    <Typography sx={{ color: "#282828A6", fontSize: "1.2rem" }}>
+                    <Typography
+                        sx={{
+                            color: "#282828A6",
+                            fontSize: "1.2rem",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => {
+                            handleClose();
+                            document
+                                .getElementById("how-it-works-section")
+                                ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
                         Products
                     </Typography>
-                    <Typography sx={{ color: "#282828A6", fontSize: "1.2rem" }}>
+                    <Typography
+                        sx={{
+                            color: "#282828A6",
+                            fontSize: "1.2rem",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => {
+                            handleClose();
+                            document
+                                .getElementById("features-section")
+                                ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
                         Feature
                     </Typography>
-                    <Typography sx={{ color: "#282828A6", fontSize: "1.2rem" }}>
+
+                    <Typography
+                        sx={{
+                            color: "#282828A6",
+                            fontSize: "1.2rem",
+                            cursor: "pointer",
+                        }}
+                        onClick={() => {
+                            handleClose();
+                            document
+                                .getElementById("faq-section")
+                                ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                    >
                         FAQ
                     </Typography>
 

@@ -35,8 +35,9 @@ const Features = () => {
                 sx={{
                     flex: 1,
                     position: "relative",
-                    height: { xs: 300, md: 400 },
-                    width: "100%",
+                    height: { xs: 200, md: 300 },
+                    width:"325px"
+
                 }}
             >
                 <Image
@@ -47,7 +48,7 @@ const Features = () => {
                 />
             </Box>
 
-            <Stack spacing={3} sx={{ flex: 1, maxWidth: "600px" }}>
+            <Stack spacing={6} sx={{ flex: 1, maxWidth: "600px" }}>
                 <Typography variant="h4" fontWeight={700}>
                     Key Features
                 </Typography>
@@ -62,22 +63,19 @@ const Features = () => {
                         >
                             {section.title}
                         </Typography>
-                        <Stack spacing={1}>
+                        <Stack spacing={6}>
                             {section.items.map((item, i) => (
                                 <Stack
                                     direction="row"
                                     alignItems="flex-start"
-                                    spacing={1}
+                                    spacing={2}
                                     key={i}
                                 >
-                                    {/* <CheckIcon
-                                        sx={{ color: "#282828", mt: "3px" }}
-                                    /> */}
                                     <Image
                                         src="/check.png"
                                         alt="Check"
-                                        width={20}
-                                        height={20}
+                                        width={15}
+                                        height={15}
                                     />
 
                                     <Typography
