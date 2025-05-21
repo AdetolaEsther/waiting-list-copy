@@ -1,4 +1,4 @@
-import { Typography, Box, Stack,  } from "@mui/material";
+import { Typography, Box, Stack } from "@mui/material";
 import React from "react";
 import Image from "next/image";
 import JoinButton from "./JoinButton";
@@ -31,13 +31,14 @@ const Features = () => {
             justifyContent="space-between"
             sx={{ px: { xs: 4, md: "204px" }, py: { xs: 6, md: "100px" } }}
         >
+            {/* Image for Desktop */}
             <Box
                 sx={{
                     flex: 1,
                     position: "relative",
-                    height: { xs: 200, md: 300 },
-                    width:"325px"
-
+                    height: { xs: 0, md: 300 },
+                    width: { xs: 0, md: "325px" },
+                    display: { xs: "none", md: "block" },
                 }}
             >
                 <Image
@@ -52,6 +53,25 @@ const Features = () => {
                 <Typography variant="h4" fontWeight={700}>
                     Key Features
                 </Typography>
+
+                {/* Image for Mobile */}
+                <Box
+                    sx={{
+                        position: "relative",
+                        height: 200,
+                        width: "100%",
+                        maxWidth: 325,
+                        display: { xs: "block", md: "none" },
+                        alignSelf: "center",
+                    }}
+                >
+                    <Image
+                        src="/shoopingcart.png"
+                        alt="Shopping Cart"
+                        layout="fill"
+                        objectFit="contain"
+                    />
+                </Box>
 
                 {features.map((section, idx) => (
                     <Box key={idx}>
@@ -77,7 +97,6 @@ const Features = () => {
                                         width={15}
                                         height={15}
                                     />
-
                                     <Typography
                                         variant="body2"
                                         color="text.primary"

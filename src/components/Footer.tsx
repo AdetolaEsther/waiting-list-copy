@@ -216,11 +216,18 @@ const [expanded, setExpanded] = useState<number | null>(null);
                         mb={6}
                         marginTop={2}
                     >
-                        <Stack direction="row" spacing={4} alignItems="center">
+                        <Stack
+                            direction={{ xs: "column", md: "row" }}
+                            spacing={2}
+                            alignItems={{ xs: "stretch", md: "center" }}
+                            width="100%"
+                        >
                             <TextField
                                 name="first_name"
                                 placeholder="First Name"
                                 variant="outlined"
+                                size="small"
+                                fullWidth
                                 value={formData.first_name}
                                 onChange={(e) =>
                                     setFormData({
@@ -228,14 +235,10 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                         [e.target.name]: e.target.value,
                                     })
                                 }
-                                size="small"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         color: "#FCFCFC",
-                                        borderColor: "#fff",
-                                        "& fieldset": {
-                                            borderColor: "#fff",
-                                        },
+                                        "& fieldset": { borderColor: "#fff" },
                                         "&:hover fieldset": {
                                             borderColor: "#fff",
                                         },
@@ -243,9 +246,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                             borderColor: "#fff",
                                         },
                                     },
-                                    "& input": {
-                                        color: "#fff",
-                                    },
+                                    "& input": { color: "#fff" },
                                     borderRadius: 2,
                                 }}
                             />
@@ -254,6 +255,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                 placeholder="Last Name"
                                 variant="outlined"
                                 size="small"
+                                fullWidth
                                 value={formData.last_name}
                                 onChange={(e) =>
                                     setFormData({
@@ -264,10 +266,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         color: "#FCFCFC",
-                                        borderColor: "#fff",
-                                        "& fieldset": {
-                                            borderColor: "#fff",
-                                        },
+                                        "& fieldset": { borderColor: "#fff" },
                                         "&:hover fieldset": {
                                             borderColor: "#fff",
                                         },
@@ -275,9 +274,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                             borderColor: "#fff",
                                         },
                                     },
-                                    "& input": {
-                                        color: "#fff",
-                                    },
+                                    "& input": { color: "#fff" },
                                 }}
                             />
                             <TextField
@@ -285,6 +282,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                 placeholder="example@email.com"
                                 variant="outlined"
                                 size="small"
+                                fullWidth
                                 value={formData.email}
                                 onChange={(e) =>
                                     setFormData({
@@ -295,10 +293,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         color: "#FCFCFC",
-                                        borderColor: "#fff",
-                                        "& fieldset": {
-                                            borderColor: "#fff",
-                                        },
+                                        "& fieldset": { borderColor: "#fff" },
                                         "&:hover fieldset": {
                                             borderColor: "#fff",
                                         },
@@ -306,9 +301,8 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                             borderColor: "#fff",
                                         },
                                     },
-                                    "& input": {
-                                        color: "#fff",
-                                    },
+                                    "& input": { color: "#fff" },
+
                                 }}
                             />
                             <Button
@@ -318,13 +312,16 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                     color: "#fff",
                                     px: 4,
                                     textTransform: "none",
+                                    whiteSpace: "nowrap",
+                                    width: { xs: "90%", md: "100%" },
                                 }}
                                 onClick={handleSubscribe}
                             >
-                                Subscribe to News Letter{" "}
+                                Subscribe to News Letter
                             </Button>
                         </Stack>
                     </Stack>
+
                     <Stack
                         direction={{ xs: "column", md: "row" }}
                         spacing={4}

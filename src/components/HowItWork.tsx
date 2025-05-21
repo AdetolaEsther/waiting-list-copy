@@ -56,10 +56,10 @@ const StepCard = ({
                 sx={{
                     width: 48,
                     height: 48,
-                    mb: 2,
+                    mb: 1,
                 }}
             >
-                <Image src={icon} alt={title} width={48} height={48} />
+                <Image src={icon} alt={title} width={20} height={35} />
             </Box>
             <Typography variant="subtitle1" fontWeight={600} mb={1}>
                 {title}:
