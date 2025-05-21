@@ -30,15 +30,15 @@ const [expanded, setExpanded] = useState<number | null>(null);
 
   const [joinWaitlist, { isLoading }] = useJoinWaitlistMutation();
 
- const handleSubscribe = async (e: React.FormEvent) => {
+ const handleSubscribe = async () => {
      try {
          await joinWaitlist(formData).unwrap();
          toast.success("Successfully joined!");
          setFormData({ first_name: "", last_name: "", email: "" });
-     } catch (error: any) {
+     } catch (error: unknown) {
          const errorMsg =
-             error?.data?.message ||
-             error?.message ||
+             (error as any)?.data?.message ||
+             (error as Error).message ||
              "Something went wrong. Please try again.";
          toast.error(errorMsg);
      }
@@ -302,7 +302,6 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                         },
                                     },
                                     "& input": { color: "#fff" },
-
                                 }}
                             />
                             <Button
@@ -315,6 +314,7 @@ const [expanded, setExpanded] = useState<number | null>(null);
                                     whiteSpace: "nowrap",
                                     width: { xs: "90%", md: "100%" },
                                 }}
+                                disabled={isLoading}
                                 onClick={handleSubscribe}
                             >
                                 Subscribe to News Letter
