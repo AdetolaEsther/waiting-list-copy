@@ -29,16 +29,22 @@ const [expanded, setExpanded] = useState<number | null>(null);
   });
 
   const [joinWaitlist, { isLoading }] = useJoinWaitlistMutation();
-
+type APIError = {
+    data?: {
+        message?: string;
+    };
+    message?: string;
+};
  const handleSubscribe = async () => {
      try {
          await joinWaitlist(formData).unwrap();
          toast.success("Successfully joined!");
          setFormData({ first_name: "", last_name: "", email: "" });
      } catch (error: unknown) {
+         const err = error as APIError;
          const errorMsg =
-             (error as any)?.data?.message ||
-             (error as Error).message ||
+             err?.data?.message ||
+             err?.message ||
              "Something went wrong. Please try again.";
          toast.error(errorMsg);
      }
